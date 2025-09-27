@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/nextjs-vite'
+import "../src/app/globals.css"; // pastikan path sesuai project kamu
 
 const preview: Preview = {
   parameters: {
