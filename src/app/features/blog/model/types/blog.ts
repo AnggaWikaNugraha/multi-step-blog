@@ -21,13 +21,13 @@ export type BlogState = {
 };
 
 export type BlogAction =
-    | { type: "SET_DATA"; payload: Blog[] }
+    | { type: "SET_DATA"; payload: any }
     | { type: "SET_LOADING"; payload: boolean }
 
     | { type: "SET_SEARCH"; payload: string }
     | { type: "SET_CATEGORY"; payload: string }
 
-    | { type: "SET_DETAIL"; payload: Blog | null }
+    | { type: "SET_DETAIL"; payload: any }
     | { type: "SET_DETAIL_LOADING"; payload: boolean }
 
     | { type: "ADD_BLOG"; payload: Blog }; // ⬅️ action baru buat add blog

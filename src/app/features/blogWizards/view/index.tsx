@@ -1,5 +1,4 @@
-import React, {useReducer, useState} from 'react'
-import {wizardReducer} from "@/app/features/blogWizards/model/blogWizards";
+import React from 'react'
 import Stepper from "@/app/_components/Stepper/Stepper";
 import {Step1Metadata} from "@/app/features/blogWizards/view/_components/step-1";
 import {WizardNavigation} from "@/app/features/blogWizards/view/_components/navigation";
@@ -11,7 +10,6 @@ import {useBlogWizard} from "@/app/features/blogWizards/_hooks/useWizards";
 const WizardsBlog = () => {
 
     const {
-        posts,
         step,
         state,
         errors,

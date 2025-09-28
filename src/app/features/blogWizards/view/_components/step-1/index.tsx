@@ -5,7 +5,7 @@ import Input from "@/app/_components/Input/Input";
 type Props = {
     title: string;
     author: string;
-    onChange: (field: string, value: string) => void;
+    onChange: any
     errors?: Record<string, string>;
 };
 

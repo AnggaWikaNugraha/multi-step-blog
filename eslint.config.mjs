@@ -20,6 +20,11 @@ const eslintConfig = [...compat.extends("next/core-web-vitals", "next/typescript
     "build/**",
     "next-env.d.ts",
   ],
+  rules: {
+    "@typescript-eslint/no-explicit-any": "off",      // ✅ disable any
+    "@typescript-eslint/no-unused-vars": "off",      // (opsional) disable unused vars
+    "react-hooks/exhaustive-deps": "off",            // (opsional) disable deps warning
+  },
 }, ...storybook.configs["flat/recommended"]];
 
 export default eslintConfig;

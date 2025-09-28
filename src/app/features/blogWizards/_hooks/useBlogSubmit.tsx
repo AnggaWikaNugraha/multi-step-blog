@@ -1,18 +1,18 @@
 "use client";
 
-import { Blog, WizardState, Errors } from "./useWizards";
 import {validateStep} from "@/app/features/blogWizards/_hooks/useValidateStep";
 import {useBlogContext} from "@/app/features/blog/model/blog";
 import { useRouter } from "next/navigation"; // ⬅️ import router
+import { Errors, WizardState } from "../model/types/blogWizards";
+import { Blog } from "../../blog/model/types/blog";
 
 type Params = {
     state: WizardState;
     setErrors: React.Dispatch<React.SetStateAction<Errors>>;
-    setPosts: React.Dispatch<React.SetStateAction<Blog[]>>;
     setStep: React.Dispatch<React.SetStateAction<number>>;
 };
 
-export function useBlogSubmit({ state, setErrors, setPosts, setStep }: Params) {
+export function useBlogSubmit({ state, setErrors, setStep }: Params) {
     const { dispatch } = useBlogContext();
     const router = useRouter(); // ⬅️ init router
 

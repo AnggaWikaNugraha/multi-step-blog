@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {getDataServiceById} from "../_service/api";
 import {useBlogContext} from "@/app/features/blog/model/blog";
 
@@ -9,13 +9,9 @@ export function useGetDataID(id: string) {
         dispatch({ type: "SET_DETAIL_LOADING", payload: true });
 
         try {
-            let res = {};
-
-            res = await getDataServiceById(id)
+            const res = await getDataServiceById(id)
 
             dispatch({ type: "SET_DETAIL", payload: res.data ?? [] });
-
-        } catch (e) {
 
         } finally {
             setTimeout(() => {

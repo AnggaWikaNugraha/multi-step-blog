@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useReducer, useContext, ReactNode } from "react";
+import React, { createContext, useContext } from "react";
 import {BlogAction, BlogInitialState, BlogState} from './types/blog'
 
 export function BlogReducer(state: BlogState, action: BlogAction): BlogState {

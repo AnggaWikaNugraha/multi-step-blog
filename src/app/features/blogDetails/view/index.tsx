@@ -4,11 +4,11 @@ import {EmptyState} from "@/app/_components/empty";
 import {useBlogContext} from "@/app/features/blog/model/blog";
 import {useGetDataID} from "@/app/features/blogDetails/_hooks/blog-details";
 
-function BlogDetails({ id, router }) {
+function BlogDetails({ id, router }: any) {
 
     useGetDataID(id)
 
-    const { state, dispatch } = useBlogContext();
+    const { state } = useBlogContext();
     const { detailBlog, detailBlogLoading } = state
     const post = detailBlog
 

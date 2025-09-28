@@ -2,9 +2,10 @@ import { useReducer, useState } from "react";
 import { wizardReducer } from "@/app/features/blogWizards/model/blogWizards";
 import { useBlogSubmit } from "./useBlogSubmit";
 import {validateStep} from "@/app/features/blogWizards/_hooks/useValidateStep";
+import { Errors, WizardState } from "../model/types/blogWizards";
+import { Blog } from "../../blog/model/types/blog";
 
 export function useBlogWizard() {
-    const [posts, setPosts] = useState<Blog[]>([]);
 
     const [step, setStep] = useState(1);
 
@@ -21,7 +22,7 @@ export function useBlogWizard() {
     const handleChange = (field: keyof WizardState, value: string) => {
         dispatch({ type: field, payload: value });
         if (errors[field]) {
-            setErrors((e) => ({ ...e, [field]: "" }));
+            setErrors((e: any) => ({ ...e, [field]: "" }));
         }
     };
 
@@ -37,10 +38,9 @@ export function useBlogWizard() {
 
     const handleBack = () => setStep((s) => Math.max(s - 1, 1));
 
-    const { handleSubmit } = useBlogSubmit({ state, setErrors, setPosts, setStep });
+    const { handleSubmit } = useBlogSubmit({ state, setErrors, setStep });
 
     return {
-        posts,
         step,
         state,
         errors,

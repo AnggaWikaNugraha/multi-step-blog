@@ -1,4 +1,5 @@
-import {Errors, WizardState} from "@/app/features/blogWizards/_hooks/useWizards";
+import { Errors, WizardState } from "../model/types/blogWizards";
+
 
 export function validateStep(state: WizardState, step: number): Errors {
     const err: Errors = {};

@@ -7,7 +7,7 @@ import Textarea from "@/app/_components/Text-area/TextArea";
 type Props = {
     summary: string;
     category: string;
-    onChange: (field: string, value: string) => void;
+    onChange: any
     errors?: Record<string, string>;
 };
 

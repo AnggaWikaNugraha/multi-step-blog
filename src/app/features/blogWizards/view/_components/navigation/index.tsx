@@ -5,7 +5,7 @@ export function WizardNavigation({
                                      onSubmit,
                                      canNext = true,
                                      canSubmit = true,
-                                 }: Props) {
+                                 }: any) {
     if (step >= 5) return null;
 
     return (

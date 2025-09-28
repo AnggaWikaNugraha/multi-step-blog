@@ -1,3 +1,5 @@
+import { Blog } from "../model/types/blog";
+
 export function filterBlogs(blogs: Blog[], search: string, category: string) {
     let result = blogs;
 

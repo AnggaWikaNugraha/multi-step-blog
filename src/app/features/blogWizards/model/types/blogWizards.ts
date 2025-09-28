@@ -1,3 +1,5 @@
+import { Blog } from "@/app/features/blog/model/types/blog";
+
 // state form
 export type WizardState = Omit<Blog, "id" | "createdAt">;
 
