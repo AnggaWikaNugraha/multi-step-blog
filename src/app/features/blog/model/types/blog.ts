@@ -30,6 +30,8 @@ export type BlogAction =
     | { type: "SET_DETAIL"; payload: Blog | null }
     | { type: "SET_DETAIL_LOADING"; payload: boolean }
 
+    | { type: "ADD_BLOG"; payload: Blog }; // ⬅️ action baru buat add blog
+
 export const BlogInitialState: BlogState = {
     data: [],
     loading: false,

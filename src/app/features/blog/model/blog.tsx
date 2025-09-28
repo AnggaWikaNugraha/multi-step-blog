@@ -20,6 +20,12 @@ export function BlogReducer(state: BlogState, action: BlogAction): BlogState {
         case "SET_DETAIL_LOADING":
             return { ...state, detailBlogLoading: action.payload };
 
+        case "ADD_BLOG":
+            return {
+                ...state,
+                data: [action.payload, ...state.data]
+            }; // prepend
+
         default:
             return state;
     }

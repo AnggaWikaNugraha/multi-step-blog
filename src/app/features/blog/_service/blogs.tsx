@@ -37,14 +37,7 @@ export const dummyPosts: Blog[] = [
 export async function getDataService() {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve({
-                data: {
-                    data: dummyPosts,
-                    total_data: dummyPosts.length,
-                    limit: 10,
-                    page: 1,
-                },
-            });
+            resolve(dummyPosts);
         }, 500); // kasih delay biar mirip API
     });
 }

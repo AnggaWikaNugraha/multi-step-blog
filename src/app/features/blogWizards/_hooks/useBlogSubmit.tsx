@@ -2,6 +2,8 @@
 
 import { Blog, WizardState, Errors } from "./useWizards";
 import {validateStep} from "@/app/features/blogWizards/_hooks/useValidateStep";
+import {useBlogContext} from "@/app/features/blog/model/blog";
+import { useRouter } from "next/navigation"; // ⬅️ import router
 
 type Params = {
     state: WizardState;
@@ -11,6 +13,9 @@ type Params = {
 };
 
 export function useBlogSubmit({ state, setErrors, setPosts, setStep }: Params) {
+    const { dispatch } = useBlogContext();
+    const router = useRouter(); // ⬅️ init router
+
     const handleSubmit = () => {
         // validasi semua step
         const allErr = {
@@ -29,8 +34,17 @@ export function useBlogSubmit({ state, setErrors, setPosts, setStep }: Params) {
             createdAt: new Date().toISOString(),
         };
 
-        setPosts((prev) => [newPost, ...prev]);
+
+        // ⬅️ simpan ke global store, bukan state lokal
+        dispatch({ type: "ADD_BLOG", payload: newPost });
+
         setStep(5); // success
+
+        // ⬅️ redirect ke halaman utama
+        setTimeout(() => {
+            router.push("/");
+        }, 1000); // kasih delay biar user sempet lihat pesan sukses
+
     };
 
     return { handleSubmit };

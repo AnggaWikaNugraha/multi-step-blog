@@ -16,7 +16,7 @@ export default function List() {
     const { state } = useBlogContext();
     const { data, loading, search, category } = state
     // 🔎 filter di FE
-    const filtered = filterBlogs(data?.data ?? [], search, category);
+    const filtered = filterBlogs(data ?? [], search, category);
 
     return (
         <div className="space-y-3 flex flex-col gap-4">

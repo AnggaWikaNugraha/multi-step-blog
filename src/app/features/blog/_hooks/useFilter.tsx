@@ -13,7 +13,8 @@ export function filterBlogs(blogs: Blog[], search: string, category: string) {
 
     // 🏷️ filter by category (optional)
     if (category) {
-        result = result.filter((b) => b.category === category);
+        const cat = category.trim().toLowerCase();
+        result = result.filter((b) => b.category.trim().toLowerCase() === cat);
     }
 
     return result;

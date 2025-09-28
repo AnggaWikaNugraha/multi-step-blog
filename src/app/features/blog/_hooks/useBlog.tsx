@@ -4,7 +4,7 @@ import {getDataService} from "../_service/blogs";
 import {useBlogContext} from "@/app/features/blog/model/blog";
 
 export function useGetData() {
-    const { dispatch } = useBlogContext();
+    const { state , dispatch } = useBlogContext();
     const getDataApi = async () => {
 
         dispatch({ type: "SET_LOADING", payload: true });
@@ -14,7 +14,9 @@ export function useGetData() {
 
             res = await getDataService()
 
-            dispatch({ type: "SET_DATA", payload: res.data ?? [] });
+            if (state?.data?.length === 0) {
+                dispatch({ type: "SET_DATA", payload: res ?? [] });
+            }
 
         } catch (e) {
 

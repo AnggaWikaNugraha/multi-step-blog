@@ -5,6 +5,7 @@ import {SearchInput} from "@/app/_components/Search";
 import {useBlogContext} from "@/app/features/blog/model/blog";
 import {SelectSearch} from "@/app/_components/Select/Select";
 import {categoryOptions} from "@/app/features/blog/model/types/blog";
+import Link from "next/link";
 
 export default function Blogs() {
 
@@ -53,12 +54,13 @@ export default function Blogs() {
                         </div>
 
                         {/* Button */}
+                        <Link href={'/blog'}>
                         <button className="w-full sm:w-auto px-4 py-2 rounded-xl bg-gray-800 text-white hover:bg-gray-700 text-sm">
                             + New Post
                         </button>
+                        </Link>
                     </div>
                 </div>
-
 
                 {/* Blog List */}
                 <List/>
