@@ -29,3 +29,10 @@ export const BlogInitialState: BlogState = {
     search: "",
     category: "",
 };
+
+export const categoryOptions = [
+    { value: "", label: "Semua Kategori" },
+    { value: "Tech", label: "Tech" },
+    { value: "Lifestyle", label: "Lifestyle" },
+    { value: "Design", label: "Design" },
+];

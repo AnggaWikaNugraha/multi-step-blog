@@ -25,7 +25,7 @@ export function SelectSearch({
         <select
             value={value}
             onChange={(e) => onChange(e.target.value)}
-            className={`p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 ${className}`}
+            className={`h-fit p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 ${className}`}
         >
             <option value="">{placeholder}</option>
             {options.map((opt) => (
