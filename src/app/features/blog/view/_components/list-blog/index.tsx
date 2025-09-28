@@ -1,18 +1,22 @@
 "use client";
 
-import {useGetData} from "@/app/features/blog/_hooks/useBlog";
-import  {Blog} from '@/app/features/blog/model/types/blog'
-import {BlogCardSkeleton} from "@/app/features/blog/view/_components/loading";
-import {EmptyState} from "@/app/features/blog/view/_components/empty";
-
 import BlogCard from "../blog-card";
+
+import {useGetData} from "@/app/features/blog/_hooks/useBlog";
+import {Blog} from '@/app/features/blog/model/types/blog'
+import {BlogCardSkeleton} from "@/app/_components/loading";
+import {EmptyState} from "@/app/_components/empty";
+
 import {useBlogContext} from "@/app/features/blog/model/blog";
+import {filterBlogs} from "@/app/features/blog/_hooks/useFilter";
 
 export default function List() {
     useGetData();
 
     const { state } = useBlogContext();
-    const { data, loading } = state
+    const { data, loading, search, category } = state
+    // 🔎 filter di FE
+    const filtered = filterBlogs(data?.data ?? [], search, category);
 
     return (
         <div className="space-y-3">
@@ -23,10 +27,10 @@ export default function List() {
                     <BlogCardSkeleton />
                     <BlogCardSkeleton />
                 </>
-            ) : data?.data?.length === 0 ? (
+            ) : filtered?.length === 0 ? (
                 <EmptyState message="Belum ada artikel ditemukan" />
             ) : (
-                data?.data?.map((blog: Blog) => <BlogCard key={blog.id} blog={blog} />)
+                filtered?.map((blog: Blog) => <BlogCard key={blog.id} blog={blog} />)
             )}
         </div>
     );

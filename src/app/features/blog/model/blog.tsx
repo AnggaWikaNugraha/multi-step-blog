@@ -9,6 +9,12 @@ export function BlogReducer(state: BlogState, action: BlogAction): BlogState {
             return { ...state, data: action.payload };
         case "SET_LOADING":
             return { ...state, loading: action.payload };
+
+        case "SET_SEARCH":
+            return { ...state, search: action.payload };
+        case "SET_CATEGORY":
+            return { ...state, category: action.payload };
+
         default:
             return state;
     }

@@ -1,30 +1,38 @@
+"use client";
 import React from "react";
 
-type Option = { value: string; label: string };
-
-type Props = React.SelectHTMLAttributes<HTMLSelectElement> & {
-    label?: string;
-    options: Option[];
-    error?: string;
+export type Option = {
+    label: string;
+    value: string;
 };
 
-export default function Select({ label, options, error, ...props }: Props) {
+type SelectSearchProps = {
+    value: string;
+    onChange: (value: string) => void;
+    options: Option[];
+    placeholder?: string;
+    className?: string;
+};
+
+export function SelectSearch({
+                                 value,
+                                 onChange,
+                                 options,
+                                 placeholder = "Pilih...",
+                                 className = "",
+                             }: SelectSearchProps) {
     return (
-        <div>
-            {label && <label className="mb-1 block text-sm text-gray-700">{label}</label>}
-            <select
-                className="w-full rounded-xl border border-gray-300 bg-gray-50 px-3 py-2 text-sm text-gray-800 outline-none
-                   focus:ring-2 focus:ring-gray-800 disabled:bg-gray-200"
-                {...props}
-            >
-                <option value="">Pilih...</option>
-                {options.map((o) => (
-                    <option key={o.value} value={o.value}>
-                        {o.label}
-                    </option>
-                ))}
-            </select>
-            {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
-        </div>
+        <select
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            className={`p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 ${className}`}
+        >
+            <option value="">{placeholder}</option>
+            {options.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                </option>
+            ))}
+        </select>
     );
 }

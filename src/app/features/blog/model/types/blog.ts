@@ -10,14 +10,22 @@ export type Blog = {
 export type BlogState = {
     data: Blog[];
     loading: boolean;
+
+    search: string;
+    category: string;
 };
 
 export type BlogAction =
     | { type: "SET_DATA"; payload: Blog[] }
-    | { type: "SET_LOADING"; payload: boolean };
+    | { type: "SET_LOADING"; payload: boolean }
 
+    | { type: "SET_SEARCH"; payload: string }
+    | { type: "SET_CATEGORY"; payload: string }
 
 export const BlogInitialState: BlogState = {
     data: [],
     loading: false,
+
+    search: "",
+    category: "",
 };

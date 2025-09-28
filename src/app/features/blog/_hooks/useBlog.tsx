@@ -17,7 +17,7 @@ export function useGetData() {
             dispatch({ type: "SET_DATA", payload: res.data ?? [] });
 
         } catch (e) {
-            console.log(e)
+
         } finally {
             setTimeout(() => {
 
