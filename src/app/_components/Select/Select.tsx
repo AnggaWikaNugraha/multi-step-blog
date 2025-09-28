@@ -12,6 +12,7 @@ type SelectSearchProps = {
     options: Option[];
     placeholder?: string;
     className?: string;
+    error?: string;
 };
 
 export function SelectSearch({
@@ -20,8 +21,10 @@ export function SelectSearch({
                                  options,
                                  placeholder = "Pilih...",
                                  className = "",
+    error,
                              }: SelectSearchProps) {
     return (
+        <>
         <select
             value={value}
             onChange={(e) => onChange(e.target.value)}
@@ -34,5 +37,7 @@ export function SelectSearch({
                 </option>
             ))}
         </select>
+        {error && <p className="text-xs text-red-600">{error}</p>}
+        </>
     );
 }
