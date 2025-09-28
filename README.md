@@ -2,10 +2,10 @@
 ## How to Run
 ```bash
 # 1. Clone repo
-git clone https://github.com/your-username/myboost-fe-test.git
+git clone https://github.com/AnggaWikaNugraha/multi-step-blog.git
 
 # 2. Install dependencies
-cd myboost-fe-test
+
 npm install
 # or
 yarn install
