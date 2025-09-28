@@ -27,10 +27,11 @@ export default function Blogs() {
 
             {/* Content Section */}
             <section className="max-w-4xl mx-auto px-6 py-10 space-y-8">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <h2 className="text-xl font-semibold text-gray-800">📚 Blog Posts</h2>
 
-                    <div className={'flex gap-4'}>
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center md:items-start sm:gap-4">
+                        {/* Dropdown */}
                         <SelectSearch
                             value={category}
                             onChange={(val) =>
@@ -38,20 +39,26 @@ export default function Blogs() {
                             }
                             options={categoryOptions}
                             placeholder="Pilih kategori"
+                            className="w-full sm:w-auto"
                         />
-                        <div className="max-w-sm">
+
+                        {/* Search */}
+                        <div className="w-full sm:w-64">
                             <SearchInput
                                 value={search}
                                 onChange={(val) => dispatch({ type: "SET_SEARCH", payload: val })}
                                 placeholder="Cari artikel..."
                             />
-                            <p className="mt-2 text-sm text-gray-500">Keyword: {search}</p>
+                            <p className="mt-1 text-xs text-gray-500 sm:text-sm">Keyword: {search}</p>
                         </div>
-                        <button className="px-4 py-2 rounded-xl bg-gray-800 text-white hover:bg-gray-700 text-sm h-fit">
+
+                        {/* Button */}
+                        <button className="w-full sm:w-auto px-4 py-2 rounded-xl bg-gray-800 text-white hover:bg-gray-700 text-sm">
                             + New Post
                         </button>
                     </div>
                 </div>
+
 
                 {/* Blog List */}
                 <List/>

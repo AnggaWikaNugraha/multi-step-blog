@@ -41,8 +41,8 @@ function BlogDetails({ id, router }) {
                             <span>{new Date(post.createdAt).toLocaleDateString()}</span>
                             <span>•</span>
                             <span className="px-3 py-1 text-xs font-medium rounded-full bg-blue-50 text-blue-600">
-        {post.category}
-      </span>
+                                {post.category}
+                              </span>
                         </div>
                     </header>
 
