@@ -15,6 +15,11 @@ export function BlogReducer(state: BlogState, action: BlogAction): BlogState {
         case "SET_CATEGORY":
             return { ...state, category: action.payload };
 
+        case "SET_DETAIL":
+            return { ...state, detailBlog: action.payload };
+        case "SET_DETAIL_LOADING":
+            return { ...state, detailBlogLoading: action.payload };
+
         default:
             return state;
     }

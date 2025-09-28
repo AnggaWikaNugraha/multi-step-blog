@@ -17,10 +17,9 @@ export default function List() {
     const { data, loading, search, category } = state
     // 🔎 filter di FE
     const filtered = filterBlogs(data?.data ?? [], search, category);
-    console.log(state)
 
     return (
-        <div className="space-y-3">
+        <div className="space-y-3 flex flex-col gap-4">
             {loading ? (
                 // 🔄 tampilkan 3 skeleton card
                 <>

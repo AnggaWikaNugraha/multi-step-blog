@@ -5,6 +5,8 @@ export type Blog = {
     summary: string;
     category: string;
     createdAt: string;
+
+    content: string;
 };
 
 export type BlogState = {
@@ -13,6 +15,9 @@ export type BlogState = {
 
     search: string;
     category: string;
+
+    detailBlog: Blog | null; // ⬅️ detail blog
+    detailBlogLoading: boolean; // ⬅️ loading detail
 };
 
 export type BlogAction =
@@ -22,12 +27,18 @@ export type BlogAction =
     | { type: "SET_SEARCH"; payload: string }
     | { type: "SET_CATEGORY"; payload: string }
 
+    | { type: "SET_DETAIL"; payload: Blog | null }
+    | { type: "SET_DETAIL_LOADING"; payload: boolean }
+
 export const BlogInitialState: BlogState = {
     data: [],
     loading: false,
 
     search: "",
     category: "",
+
+    detailBlog: null, // ⬅️ detail blog
+    detailBlogLoading: false, // ⬅️ loading detail
 };
 
 export const categoryOptions = [
